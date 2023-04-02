@@ -107,10 +107,6 @@ void Account::displayStatus(void) const {
 }
 
 void Account::_displayTimestamp(void) {
-	std::string tz = "TZ=Europe/Paris";
-    if (putenv((char*)tz.c_str()) != 0) {
-        std::cerr << "Error setting timezone" << std::endl;
-    }
 	std::time_t now_time_t = std::time(NULL);
 	std::tm* now_tm = std::localtime(&now_time_t);
 
