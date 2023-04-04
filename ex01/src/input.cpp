@@ -2,6 +2,8 @@
 #include <iostream>
 #include <limits>
 
+#define EOF_FOUND "End of input reached"
+
 static void printPrompt(std::string prompt);
 
 std::string getLine(std::string prompt) {
@@ -10,9 +12,9 @@ std::string getLine(std::string prompt) {
 	std::string line;
 	std::getline(std::cin, line);
 	if (std::cin.eof()) {
-		throw std::runtime_error("End of input reached.");
+		throw std::runtime_error(EOF_FOUND);
 	} else if (std::cin.fail()) {
-		throw std::runtime_error("Input failed.");
+		throw std::runtime_error("Input failed");
 	}
 	return (line);
 }
@@ -24,7 +26,7 @@ int	getInt(std::string prompt) {
 	while (true) {
 		std::cin >> input;
 		if (std::cin.eof()) {
-			throw std::runtime_error("End of input reached.");
+			throw std::runtime_error(EOF_FOUND);
 		} else if (std::cin.fail()) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

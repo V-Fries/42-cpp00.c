@@ -15,8 +15,6 @@ int main(void) {
 				phoneBook.addContact();
 			else if (input == "SEARCH")
 				phoneBook.search();
-			else
-				std::cout << "Unexpected input" << std::endl;
 			input = getLine("Phone book $> ");
 		}
 	} catch (const std::exception& ex) {
